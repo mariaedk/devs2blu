@@ -1,0 +1,27 @@
+
+public class Combustivel {
+	
+	private String tipoCombustivel;
+	private String descricaoCombustivel;
+	
+	public String getTipoCombustivel()
+	{
+		return tipoCombustivel;
+	}
+	
+	public void setTipoCombustivel(String tipoCombustivel) 
+	{
+		this.tipoCombustivel = tipoCombustivel;
+	}
+	
+	public String getDescricaoCombustivel() 
+	{
+		return descricaoCombustivel;
+	}
+	
+	public void setDescricaoCombustivel(String descricaoCombustivel) 
+	{
+		this.descricaoCombustivel = descricaoCombustivel;
+	}
+
+}

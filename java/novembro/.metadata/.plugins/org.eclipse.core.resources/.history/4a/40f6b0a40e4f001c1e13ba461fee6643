@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+
+public class Proprietario {
+	
+	private ArrayList<Veiculo> veiculos = new ArrayList();
+	private String nomeProprietario;
+	private int idadeProprietario;
+	
+	public String getNomeProprietario() {
+		return nomeProprietario;
+	}
+	public void setNomeProprietario(String nomeProprietario) {
+		this.nomeProprietario = nomeProprietario;
+	}
+	public int getIdadeProprietario() {
+		return idadeProprietario;
+	}
+	public void setIdadeProprietario(int idadeProprietario) {
+		this.idadeProprietario = idadeProprietario;
+	}
+	public void addVeiculosLista(Veiculo veiculo)
+	{
+		veiculos.add(veiculo);
+	}
+}

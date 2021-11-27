@@ -1,0 +1,19 @@
+// 26/11/2021 - Maria Eduarda Krutzsch
+
+import javax.swing.JOptionPane;
+
+public class MassaCorporal 
+{
+
+	public static void main(String[] args) 
+	{
+		float altura, peso, imc;
+		
+		altura = Float.parseFloat(JOptionPane.showInputDialog("Informe a altura: "));
+		
+		peso = Float.parseFloat(JOptionPane.showInputDialog("Informe o peso: "));
+		
+		
+		
+	}
+}

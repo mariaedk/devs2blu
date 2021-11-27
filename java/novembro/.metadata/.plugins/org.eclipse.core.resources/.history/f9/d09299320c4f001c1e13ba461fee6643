@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	
+	
+	public static void main(String[] args) {
+		
+		Proprietario prop = new Proprietario();
+		Veiculo veiculo = new Veiculo();
+		Combustivel combustivel = new Combustivel();
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		String nomeProp;
+		System.out.print("Nome do proprietário: ");
+		prop.setNomeProprietario(nomeProp = teclado.next());
+		
+		int idadeProp;
+		System.out.println("Idade do proprietário: ");
+		prop.setIdadeProprietario(idadeProp = teclado.nextInt());
+		
+		String nomePropVeiculo;
+		
+		System.out.println("Nome do proprietário do veículo: ");
+		veiculo.setProprietario(prop.getNomeProprietario());
+
+	}
+
+}
