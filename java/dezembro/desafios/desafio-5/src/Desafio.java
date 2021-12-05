@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Desafio 
+{
+
+	public static void main(String[] args) 
+	{
+		// Desenvolva um programa que permita informar a quantidade de itens vendidos
+		// Em seguida, peça o código, descrição, valor unitário e quantidade vendida.
+		// Para cada item, imprimir os dados, calcular o valor total do item e ao final 
+		// 	do programa imprimir o valor total da nota
+		
+		Scanner teclado = new Scanner(System.in);
+	
+		System.out.print("Quantidade de itens vendidos: ");
+		int qtdItensVendidos = teclado.nextInt();
+		
+		double  valorTotal = 0;
+		for (int i = 0; i < qtdItensVendidos; i++)
+		{
+			System.out.println("============================");
+			System.out.print("Código do item: ");
+			int codigo = teclado.nextInt();
+			
+			System.out.print("Descrição do item: ");
+			String descricao = teclado.next();
+			
+			System.out.print("Quantidade do item: ");
+			int qtdItem = teclado.nextInt();
+			
+			System.out.print("Valor unitário do item: ");
+			double valorUnitarioItem = teclado.nextDouble();
+			
+			System.out.println("============================");
+			System.out.println("Código: " + codigo);
+			System.out.println("Descrição: " + descricao);
+			System.out.println("Quantidade: " + qtdItem);
+			System.out.println("Valor unitário do item: " + valorUnitarioItem);
+			System.out.println("Valor total dos items: " + valorUnitarioItem * qtdItem);
+			
+			valorTotal += qtdItem * valorUnitarioItem;
+		}
+		
+		System.out.println();
+		System.out.println("============================");
+		System.out.println("Valor total da nota: " + valorTotal);
+		teclado.close();
+	}
+
+}
