@@ -1,3 +1,3 @@
 # +Devs2Blu
 
-* Este repositório contém pastas de exercícios realizados no programa +DEVS2BLU e será mantido atualizado.
+* Este repositório contém até o momento pastas de exercícios e desafios realizados no programa +DEVS2BLU.
