@@ -1,7 +1,0 @@
-INDEX VERSION 1.131+D:\dev2blu\java\novembro\.metadata\.plugins\org.eclipse.jdt.core
-2110769446.index
-1092660469.index
-808814353.index
-3460880079.index
-1865797976.index
-1977022507.index
