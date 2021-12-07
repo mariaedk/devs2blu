@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class RevisaoProva 
+{
+	public static void main(String[] args) 
+	{
+		Scanner teclado = new Scanner(System.in);
+		
+		float mediaAluno = 0, melhorMediaGeral = Float.MIN_VALUE, piorMediaGeral = Float.MAX_VALUE, notaAluno = 0;
+		String nomeAluno = "";
+		
+		System.out.println("-+-+-+-+ Sistema da Escola Futuro -+-+-+-+");
+		
+		System.out.print("Informe a quantidade de alunos: ");
+		int quantidadeAlunos = teclado.nextInt();
+		
+		System.out.print("Informe a quantidade de notas: ");
+		int quantidadeNotas = teclado.nextInt();
+		
+		System.out.println("-----------------------------");
+		
+		for (int i = 0; i < quantidadeAlunos; i++) {
+			System.out.print("Nome do aluno: ");
+			nomeAluno = teclado.next();
+			
+			for (int j = 0; j < quantidadeNotas; j++) {
+				System.out.print("Informe a nota " + (j + 1) + " do aluno " + nomeAluno + " :");
+				notaAluno = teclado.nextFloat();
+				
+				mediaAluno += notaAluno;
+			}
+			
+			mediaAluno = mediaAluno / quantidadeNotas;
+			
+			System.out.println("Nome: " + nomeAluno);
+			System.out.println("Média: " + mediaAluno);
+			
+			if (mediaAluno >= 7.5)
+			{
+				System.out.println("Situação: Aprovado.");
+			}
+			else if (mediaAluno >= 6)
+			{
+				System.out.println("Situação: Em recuperação.");
+			}
+			else
+			{
+				System.out.println("Situação: Reprovado.");
+			}
+			
+			if (mediaAluno > melhorMediaGeral)
+			{
+				melhorMediaGeral = mediaAluno;
+			}
+			if (mediaAluno < piorMediaGeral)
+			{
+				piorMediaGeral = mediaAluno;
+			}
+			
+			System.out.println("-----------------------------");
+			mediaAluno = 0;
+		}
+		
+		System.out.println("Melhor média: " + melhorMediaGeral);
+		System.out.println("Pior média: " + piorMediaGeral);
+	}
+}

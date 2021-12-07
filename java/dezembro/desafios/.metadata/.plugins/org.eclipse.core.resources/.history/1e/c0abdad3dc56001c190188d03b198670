@@ -1,0 +1,57 @@
+package moduloBD;
+
+import java.awt.Image;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import moduloBGame.Ambiente;
+
+public class POOmonH extends POOmon {
+
+	@Override
+	public String getNome() {
+		return "Daiane";
+	}
+
+	@Override
+	public Ambiente getAmbienteOriginario() {
+		return Ambiente.AGUA;
+	}
+
+	@Override
+	public String getHistoria() {
+		return "É uma ornitorrinco bailarina especialista em artes marciais." + "\r\n"
+				+ "Tinha um sonho de um dia, apresentar \"Cisne Negro\", para o qual havia treinado intensamente."
+				+ "\r\n"
+				+ "Quando finalmente lhe foi concedida a oportunidade, acabou sofrendo bullying, sendo chamada principalmente de \"Patinho Feio\"."
+				+ "\r\n"
+				+ "Isso a tornou amargurada e, posteriormente, uma lutadora fria, fundando então a organização DDD."
+				+ "\r\n"
+				+ "Passa a maior parte do seu tempo treinando e aperfeiçoando seus golpes em riachos, seu local preferido.";
+	}
+
+	public Image getImagem() {
+		Image image = null;
+		
+		try {
+			if (this.getEnergia() > 350) {
+				image = ImageIO.read(getClass().getResource("images/daiane.jpg"));
+			} else if (this.getEnergia() > 150) {
+				image = ImageIO.read(getClass().getResource("images/daiane_cansada.jpg"));
+			} else if (this.getEnergia() > 1) {
+				image = ImageIO.read(getClass().getResource("images/daiane_exausta.jpg"));
+			} else {
+				image = ImageIO.read(getClass().getResource("images/daiane_morta.jpg"));
+			}
+
+			return image;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e.toString());
+		}
+		
+		return image;
+	}
+}

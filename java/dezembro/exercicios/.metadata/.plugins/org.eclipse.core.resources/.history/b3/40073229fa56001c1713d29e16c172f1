@@ -1,0 +1,12 @@
+
+public class Aluno {
+	private String nome;
+	private int idade;
+	private float mediaAluno;
+	
+	public void listarAluno()
+	{
+		System.out.println("Nome:" + nome);
+		System.out.println("Idade:" + idade);
+	}
+}

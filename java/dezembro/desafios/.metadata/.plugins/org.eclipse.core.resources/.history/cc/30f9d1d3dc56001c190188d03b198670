@@ -1,0 +1,121 @@
+package moduloBD;
+
+import java.time.LocalDateTime;
+
+import moduloBGame.Ambiente;
+import moduloBGame.Mediador;
+import moduloBGame.POOmonComportamento;
+
+public abstract class POOmon implements POOmonComportamento {
+	private int energiaVital;
+	private int qtdAtivacoes;
+	private int vitorias;
+	private boolean estaMorto;
+	private int maiorEnergiaVital;
+	private Mediador mediador;
+	private POOmonComportamento oponente;
+	private LocalDateTime momentoMaiorEnergiaVital;
+
+	public POOmon() 
+	{
+		this.energiaVital = 500;
+	}
+
+	public int getEnergia() {
+		return this.energiaVital;
+	}
+
+	public void setEnergiaVital(int energiaVital) {
+		this.energiaVital = energiaVital;
+	}
+
+	public int getQtdActivacoes() {
+		return this.qtdAtivacoes;
+	}
+
+	public void adicionarQtdAtivacoes() {
+		this.qtdAtivacoes++;
+	}
+
+	public int getVitorias() {
+		return this.vitorias;
+	}
+
+	public int getMaiorEnergiaVital() {
+		return this.maiorEnergiaVital;
+	}
+
+	public void setMaiorEnergiaVital() {
+		this.maiorEnergiaVital = this.energiaVital;
+	}
+
+	public LocalDateTime getMomentoMaiorEnergiaVital() {
+		return this.momentoMaiorEnergiaVital;
+	}
+
+	public void setMomentoMaiorEnergiaVital() {
+		this.momentoMaiorEnergiaVital = LocalDateTime.now();
+	}
+
+	public void vitoria() {
+		this.vitorias++;
+	}
+
+	public void derrota() {
+		this.estaMorto = true;
+	}
+
+	public void setMediador(Mediador p0) {
+		this.mediador = p0;
+		
+	}
+
+	public void informarOponente(POOmonComportamento arg0) {
+		this.oponente = arg0;
+	}
+	
+	public void atacar(Ambiente arg0) {
+		final int numeroAleatorio = (int) (Math.random() * 3.0 + 1.0);
+
+		switch (numeroAleatorio) {
+		case 1:
+			int danoBasico = (int) new AtaqueBasico().retornarDano(this.getAmbienteOriginario(), arg0);
+			this.oponente.receberAtaque(danoBasico, arg0);
+			break;
+		case 2:
+			int danoAgressivo = (int) new AtaqueAgressivo().retornarDano(this.getAmbienteOriginario(), arg0);
+			this.setEnergiaVital((int) (this.energiaVital - danoAgressivo));
+			this.oponente.receberAtaque(danoAgressivo, arg0);
+			break;
+		case 3:
+			int danoCruel = (int) new AtaqueCruel().retornarDano(this.getAmbienteOriginario(), arg0);
+			if (this.energiaVital > (danoCruel * 2)) {
+				this.setEnergiaVital((int) (this.energiaVital - danoCruel));
+				danoCruel += danoCruel * 0.5;
+				this.oponente.receberAtaque(danoCruel, arg0);
+			}
+			break;
+		}
+	}
+
+	public void receberAtaque(int p0, Ambiente p1) {
+		if (this.getAmbienteOriginario() == p1) {
+			this.setEnergiaVital((int) (this.energiaVital - (p0 * 0.9)));
+		} else {
+			this.setEnergiaVital(this.energiaVital - p0);
+		}
+		
+		if(this.energiaVital < 1) {
+			this.estaMorto = true;
+		}
+	}
+
+	public boolean estaVivo() {
+		return this.estaMorto;
+	}
+
+	public void carregar(int p0) {
+		this.energiaVital += p0;
+	}
+
+}

@@ -1,0 +1,80 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Desafio {
+
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		int opcao = 0;
+		double resto = 0;
+		
+		do {
+			System.out.println("-+-+-+-+ MENU -+-+-+-+");
+			System.out.println("1 - Somar");
+			System.out.println("2 - Subtrair");
+			System.out.println("3 - Multiplicar");
+			System.out.println("4 - Dividir");
+			System.out.println("9 - Sair");
+			
+			opcao = teclado.nextInt();
+			
+			System.out.print("Primeiro número: ");
+			double numero1 = teclado.nextDouble();
+			System.out.print("Segundo número: ");
+			double numero2 = teclado.nextDouble();
+			
+			double resultado = 0;
+			
+			switch(opcao)
+			{
+				case 1:
+					resultado = numero1 + numero2;
+					break;
+					
+				case 2:
+					resultado = numero1 - numero2;
+					break;
+				
+				case 3:
+					resultado = numero1 * numero2;
+					break;
+					
+				case 4:
+					if (numero2 != 0)
+					{
+						resultado = numero1 / numero2;
+						if (resultado > Math.floor(resultado))
+						{
+							resto = numero1 % numero2;
+						}
+					}
+					else
+					{
+						do
+						{
+							System.out.println("Divisor é igual a 0. Inválido. Digite novamente:");	
+							numero2 = teclado.nextDouble();
+						} while (numero2 != 0);
+
+					}
+					break;
+					
+				case 9:
+					break;
+			}
+			
+			System.out.print("RESULTADO: " + resultado);
+			if (opcao == 4 && numero2 != 0)
+			{
+				System.out.println();
+				System.out.println("RESTO DA DIVISÃO: " + resto);
+			}
+			System.out.println();
+		} while (opcao != 9);
+		
+		System.out.println("Saiu do programa.");
+		teclado.close();
+	}
+}

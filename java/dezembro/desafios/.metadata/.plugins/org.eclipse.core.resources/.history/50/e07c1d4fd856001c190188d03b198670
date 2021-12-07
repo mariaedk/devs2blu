@@ -1,0 +1,36 @@
+package moduloBD;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import moduloBGame.Mediador;
+
+public class Logs {
+	 private Mediador mediador;
+	 private POOmon nome; // pode colocar só "POOmon" sabendo que vai ser qualquer tipo de POOmon (ex: POOmonH)?
+	 private LocalDateTime date;
+	 
+	public Mediador getMediador() {
+		return mediador;
+	}
+	public void setMediador(Mediador mediador) {
+		this.mediador = mediador;
+	}
+	public POOmon getNome() {
+		return nome;
+	}
+	public void setNome(POOmon nome) {
+		this.nome = nome;
+	}
+	 
+	public String estatisticas(POOmon poomon)
+	{
+		String retorno = "Minha energia vital: " + poomon.getEnergia() + LocalDateTime.now()
+					   + "\nAtaque Recebido: " + //achar um jeito de retornar o ataque recebido e o ambiente do ataque considerando tbm o ambiente do poomon
+					   + "\nAtaque efetuado: "   //mesma coisa de cima
+					   + "\nEnergia recebida: " + poomon.getEnergia(); // ???
+				
+		return retorno;
+	}
+	
+}
