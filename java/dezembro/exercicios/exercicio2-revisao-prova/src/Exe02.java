@@ -1,0 +1,69 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+/*
+ Uma agência bancária possui vários clientes que podem fazer investimentos 
+   com rendimentos mensais, conforme a tabela a seguir:
+
+    Tipo	Descrição		Rendimento mensal
+     1		Poupança		    1.5%
+     2		Poupança plus		2.0%
+     3		Fundos de renda		4.0%
+			
+   Faça um programa que leia o código do cliente, o tipo da conta e o valor investido 
+   e que calcule e mostre o rendimento mensal de acordo com o tipo do investimento. 
+   Ao final do programa mostre o total de juros pagos. 
+   A leitura terminará quando o código do cliente digitado for menor ou igual a 0.
+
+ */
+public class Exe02 {
+	public static void main(String[] args) {
+		
+		int codigoCliente, tipoConta;
+		double valorInvestido, rendimentoMensal = 0;
+		
+		Scanner teclado = new Scanner(System.in);
+		DecimalFormat formatador = new DecimalFormat("R$ #,##0.00");
+		
+		System.out.println("============= Sistema bancário =============");
+		
+		do
+		{
+			
+			System.out.println("Tabela informativa:");
+			System.out.println("-----------------------------------------");
+			System.out.println("Tipo	        Descrição	Rendimento mensal");
+			System.out.println(" 1		Poupança		1,5%");
+			System.out.println(" 2		Poupança plus		2.0%");
+			System.out.println(" 3		Fundos de renda		4.0%");
+			System.out.println("-----------------------------------------");
+			
+			System.out.println("Seu código de cliente (0 para encerrar o programa): ");
+			codigoCliente = teclado.nextInt();
+			
+			System.out.println("Tipo de conta: ");
+			tipoConta = teclado.nextInt();
+			
+			System.out.println("Valor investido: ");
+			valorInvestido = teclado.nextDouble();
+			
+			switch(tipoConta)
+			{
+			 	case 1:
+			 		rendimentoMensal = valorInvestido * 1.5;
+			 		System.out.println("Tipo de rendimento mensal: Poupança (1.5%) -- " + formatador.format(rendimentoMensal));
+			 		break;
+			 	case 2:
+			 		rendimentoMensal = valorInvestido * 2.0;
+			 		System.out.println("Tipo de rendimento mensal: Poupança plus (2.0%) -- " + formatador.format(rendimentoMensal));
+			 		break;
+			 	case 3:
+			 		rendimentoMensal = valorInvestido * 4.0;
+			 		System.out.println("Tipo de rendimento mensal: Fundos de renda (4.0%) -- " + formatador.format(rendimentoMensal));
+			 		break;
+			}
+			System.out.println("Total de juros pagos: " + formatador.format(rendimentoMensal - valorInvestido));
+		} while (codigoCliente <= 0);
+		teclado.close();
+	}
+}
