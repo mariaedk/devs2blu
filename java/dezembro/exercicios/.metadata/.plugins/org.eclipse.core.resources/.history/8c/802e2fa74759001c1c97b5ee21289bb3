@@ -1,0 +1,6 @@
+
+public class Gerencia 
+{
+	public float comissao;
+	public String descDepto;
+}

@@ -1,0 +1,70 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+/* 
+1. Faça um programa que receba o valor de um carro e mostre uma tabela 
+   com os seguintes dados: preço final, quantidade de parcelas e valor da parcela. 
+   Considere o seguinte:
+
+   O preço final para compra à vista tem um desconto de 20%;
+   Se for a prazo, a quantidades de parcelas pode ser: 
+      6, 12, 18, 24, 30, 36, 42, 48, 54 e 60.
+		
+   Os percentuais de acréscimo seguem a tabela a seguir.  
+			valorCarro = valorCarro * (((qtdParcelas / 2)/100) + 1)
+	Parcelas	Acréscimo
+	6		3%
+	12		6%
+	18		9%
+	24		12%
+	30		15%
+	36		18%
+	42		21%
+	48		24%
+	54		27%
+	60		30%
+*/
+public class Exe01 {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		DecimalFormat formatador = new DecimalFormat(",####");
+		System.out.println("Digite o valor do carro: ");
+		double valorCarro = teclado.nextDouble();
+
+		int opcao;
+		
+		do 
+		{
+			System.out.println("Selecione a forma de pagamento: ");
+			System.out.println("1 - À vista, 2 - À prazo, 3 - Sair do programa");
+			opcao = teclado.nextInt();
+			
+			int qtdParcelas;
+			double valorParcela;
+			
+			switch(opcao)
+			{
+				case 1:
+					valorCarro = valorCarro * 0.8;
+					System.out.println("==============================");
+					System.out.println("Valor final: " + formatador.format(valorCarro));
+					System.out.println("==============================");
+					break;
+				case 2:
+					System.out.println("A quantidades de parcelas pode ser: 6, 12, 18, 24, 30, 36, 42, 48, 54 e 60.");
+					System.out.println("Digite a quantidade de parcelas que deseja: ");
+					qtdParcelas = teclado.nextInt();
+					valorCarro = valorCarro * (((qtdParcelas / 2)/100) + 1);
+					valorParcela = valorCarro / qtdParcelas;
+					System.out.println("==============================");
+					System.out.println("Valor final: " + formatador.format(valorCarro));
+					System.out.println("Qtd parcelas selecionadas: " + valorParcela);
+					System.out.println("Valor da parcela: " + formatador.format(valorCarro));
+					System.out.println("==============================");
+					break;
+			}
+		} while (opcao != 3);
+		teclado.close();
+	}
+	
+}

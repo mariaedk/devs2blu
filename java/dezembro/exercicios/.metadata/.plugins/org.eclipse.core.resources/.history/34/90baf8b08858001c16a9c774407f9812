@@ -1,0 +1,114 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+/*
+3. Faça um programa que apresente o menu de opções a seguir, que permita ao usuário 
+   escolher a opção desejada, receba os dados necessários para executar a operação e 
+   mostre o resultado. 
+   Verificar a possibilidade de opção inválida e não se preocupar com as restrições, 
+   como salário inválido.  
+
+		Menu de opções:  
+
+		1. Novo salário
+		2. Férias
+		3. Décimo terceiro
+		4. Sair  
+		Digite a opção desejada :
+
+   Na Opção 1: Receber o salário de um funcionário, calcular e mostrar o novo salário usando as 
+               regras a seguir:  
+		
+		Salários			% aumento
+		Inferior a R$ 350,00		15%
+		De R$ 350,00 a R$ 600,00	10%
+		Acima de R$ 600,00		 5%
+		
+   Na opção 2: Receber o salário de um funcionário, calcular e mostrar o valor de suas férias. 
+               Sabe-se que as férias equivalem ao seu salário acrescido de l/3 do salário atual.  
+
+   Na opção 3: Receber o salário de um funcionário e o número de meses de trabalho na empresa, 
+               no máximo 12, calcular e mostrar o valor do décimo terceiro. 
+               Sabe-se que o décimo terceiro equivale ao seu salário multiplicado pelo número de 
+               meses de trabalho dividido por 12.  
+
+   Na opção 4: sair do programa.  
+ */
+
+
+public class Exe03 
+{
+	public static void main(String[] args)
+	{
+		Scanner teclado = new Scanner(System.in);
+		DecimalFormat formatador = new DecimalFormat("R$ #,##0.00");
+		
+		int opcao, meses;
+		double salario;
+		double ferias, decimoTerceiro;
+		
+		System.out.println("		Menu de opções:  \r\n"
+				+ "\r\n"
+				+ "		1. Novo salário\r\n"
+				+ "		2. Férias\r\n"
+				+ "		3. Décimo terceiro\r\n"
+				+ "		4. Sair  ");
+		
+		do
+		{
+			System.out.println("Digite sua opção: ");
+			opcao = teclado.nextInt();
+			
+			switch(opcao)
+			{
+
+				case 1:
+					System.out.print("Informe seu salário: ");
+					salario = teclado.nextDouble();
+					if (salario < 350)
+					{
+						salario = salario * 1.15;
+					}
+					else if (salario <= 600)
+					{
+						salario = salario * 1.10;
+					}
+					else if (salario > 600)
+					{
+						salario = salario * 1.05;
+					}
+					System.out.println("Novo salário: " + formatador.format(salario));
+					break;
+					
+				case 2:
+					System.out.print("Informe seu salário: ");
+					salario = teclado.nextDouble();
+					ferias = salario + (salario/3);
+					System.out.println("Valor das suas férias: " + formatador.format(ferias));
+					break;
+					
+				case 3:
+					System.out.print("Informe seu salário: ");
+					salario = teclado.nextDouble();
+					System.out.println("Número de meses: ");
+					do
+					{
+						meses = teclado.nextInt();
+					} while (meses > 12);
+					
+					decimoTerceiro = (salario * meses) / 12;
+					System.out.println("Décimo terceiro: " + formatador.format(decimoTerceiro));
+					break;
+					
+				case 4:
+					break;
+					
+				default:
+					System.out.println("Opção errada! Apenas 1 2 3 ou 4.");
+					break;
+			}
+			
+		} while (opcao != 4);
+		teclado.close();
+	}
+}
