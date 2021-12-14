@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Proprietario prop = new Proprietario();
+		Veiculo veiculo = new Veiculo();
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		boolean continuar = true;
+		
+		while (continuar)
+		{
+			String nomeProp;
+			System.out.print("Nome do proprietário: ");
+			prop.setNomeProprietario(nomeProp = teclado.next());
+			
+			int idadeProp;
+			System.out.println("Idade do proprietário: ");
+			prop.setIdadeProprietario(idadeProp = teclado.nextInt());
+			
+			veiculo.setProprietario(prop.getNomeProprietario());
+			
+			String placa;
+			System.out.println("Placa do veículo: ");
+			veiculo.setPlaca(placa = teclado.next());
+			
+			prop.addVeiculosLista(veiculo);
+			
+			System.out.print("Deseja continuar?(s/n) ");
+			String resposta = teclado.next();
+			
+			if (resposta.equals("n"))
+			{
+				continuar = !continuar;
+			}
+		}
+		
+		System.out.println("=========+==========+==========+==========+==========");
+		System.out.println();
+		
+		boolean placaExiste = false;
+		String placaPesquisada;
+		
+		do {
+			
+			System.out.print("Placa: ");	
+			placaPesquisada = teclado.next();
+			for (Veiculo p : prop.getVeiculos()) {
+				String placaExistente  = p.getPlaca();
+				if (placaExistente == placaPesquisada)
+				{
+					placaExiste = true;
+				}
+			}
+			
+		} while (!placaExiste);
+
+		System.out.println("Nome do proprietário: " + prop.getNomeProprietario());
+		
+		System.out.println("Idade do proprietário: " + prop.getIdadeProprietario());
+		
+		System.out.println();
+
+	}
+}

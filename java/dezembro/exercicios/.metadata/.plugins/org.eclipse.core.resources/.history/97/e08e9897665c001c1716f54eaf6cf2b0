@@ -1,0 +1,19 @@
+
+public class InterfaceExe 
+{
+	
+	public static void main(String[] args) 
+	{
+		Automóvel automovel = new Automóvel();
+		
+		automovel.abastecer();
+		automovel.acelerar();
+		automovel.frear();
+		
+		Moto moto = new Moto();
+		
+		moto.abastecer();
+		moto.acelerar();
+		moto.frear();
+	}
+}

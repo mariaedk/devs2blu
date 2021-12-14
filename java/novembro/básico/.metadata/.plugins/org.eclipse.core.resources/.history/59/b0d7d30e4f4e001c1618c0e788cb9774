@@ -1,0 +1,58 @@
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class TipoDadoPrincipal {
+
+	public static void main(String[] args) {
+		
+		String nome; // caracteres
+		
+		int idade; // inteiro
+		
+		char sexo;
+		
+		float salario; // metade de um double -> tem 6 casas decimais (32 bits)
+		
+		double salarioAnual; // dobro de um float -> tem 10 casas decimais (64 bits)
+		// formatador
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		/* IMPORTANTE: cuidar com os tipos, pois usar demais double sem necessidade
+		  pode causar sobrecarga no programa */
+		
+		/* entrada de dados DIRETA:
+		 * nome = "João do Nascimento"; 
+		 * idade = 45; 
+		 * sexo = 'M'; 
+		 * salario = 1000.00f; // f no final para informar que é um float invés de um double 
+		 * salarioAnual = 12000.00;
+		 * 
+		 */
+		
+		LocalDate dataNascimento;
+		Scanner teclado = new Scanner(System.in);
+		
+		nome = JOptionPane.showInputDialog("Qual o seu nome?");
+		
+		idade = Integer.parseInt(JOptionPane.showInputDialog("Qual a sua idade?"));
+		
+		sexo = JOptionPane.showInputDialog("Qual o seu nome?").charAt(0);
+		
+		salario = Float.parseFloat(JOptionPane.showInputDialog("Qual o seu salário?"));
+		
+		salarioAnual = Double.parseDouble(JOptionPane.showInputDialog("Qual o seu salário anual? "));
+		
+		dataNascimento = (LocalDate) formatador.parse(JOptionPane.showInputDialog("Informe a data de nascimento: "));
+		
+		String dataNascimentoFormatada = dataNascimento.format(formatador);
+		System.out.println("Nome: " + nome + "\nIdade: " + idade + "\nSexo: " + sexo
+							+ "\nGanha R$" + salario + " mensalmente e anualmente R$" + salarioAnual + 
+							"\n Data: " + dataNascimentoFormatada);
+		
+	}
+}

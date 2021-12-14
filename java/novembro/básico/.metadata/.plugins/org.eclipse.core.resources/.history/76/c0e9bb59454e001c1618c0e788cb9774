@@ -1,0 +1,31 @@
+import java.sql.Date;
+
+public class TipoDadoPrincipal {
+
+	public static void main(String[] args) {
+		
+		String nome; // caracteres
+		
+		int idade; // inteiro
+		
+		char sexo;
+		
+		float salario; // metade de um double -> tem 6 casas decimais (32 bits)
+		
+		double salarioAnual; // dobro de um float -> tem 10 casas decimais (64 bits)
+		
+		Date dataNascimento;
+		
+		/* IMPORTANTE: cuidar com os tipos, pois usar demais double sem necessidade
+		  pode causar sobrecarga no programa */
+		
+		nome = "João do Nascimento";
+		idade = 45;
+		sexo = 'M';
+		salario = 1000.00f;  // f no final para informar que é um float invés de um double
+		salarioAnual = 12000.00;
+		System.out.println("Nome: " + nome + "\nIdade: " + idade + "\nSexo: " + sexo
+							+ "\nGanha R$" + salario + " mensalmente e anualmente R$" + salarioAnual );
+		
+	}
+}

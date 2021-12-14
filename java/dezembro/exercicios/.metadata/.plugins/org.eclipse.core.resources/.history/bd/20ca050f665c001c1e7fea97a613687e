@@ -1,0 +1,8 @@
+
+public class InterfaceExe {
+	public static void main(String[] args) {
+		Automovel automovel = new Automovel();
+		
+		
+	}
+}

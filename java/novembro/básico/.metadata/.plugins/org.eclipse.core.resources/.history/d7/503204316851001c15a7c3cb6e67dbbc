@@ -1,0 +1,23 @@
+package usandoSwitch;
+
+import javax.swing.JOptionPane;
+
+public class usoSwitch {
+	public static void main(String[] args) {
+		
+		int opcao;
+		
+		opcao = Integer.parseInt(JOptionPane.showInputDialog("Informe a opção"));
+		
+		switch(opcao)
+		{
+		case 1:
+			System.out.println("Inclusão");
+			break;
+			
+		default:
+			JOptionPane.showMessageDialog(null, "Atenção! Opção inválida.");
+		}
+		
+	}
+}
