@@ -1,6 +1,14 @@
 
 public class InterfaceExe 
 {
+	/*
+		Crie uma interface para a classe Veículo que sirva ás classes filhas Automóvel e Moto.
+		Essa interface deve abstrair três métodos, á saber:
+		1. Acelerar;
+		2. Abastecer;
+		3. Frear; 
+		
+	 */
 	
 	public static void main(String[] args) 
 	{
