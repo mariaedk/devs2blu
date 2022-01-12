@@ -1,0 +1,1 @@
+Uma nota fiscal pode ter vários manifestos de carga, mas um manifesto de carga pode ter apenas uma nota fiscal.
