@@ -1,0 +1,57 @@
+package principal;
+
+import java.util.Scanner;
+
+import exceptions.DigitoIncorretoException;
+import exceptions.IdadeNegativaException;
+
+public class MinhasExcecoes {
+	
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Olá");
+		
+		try 
+		{
+			lerIdade();
+			lerDigitoAlgarismos();
+		} 
+		catch (IdadeNegativaException ie) 
+		{
+			ie.printStackTrace();
+		}
+		catch (DigitoIncorretoException di)
+		{
+			System.out.println(di.getMessage());
+		}
+	}
+	
+	static void lerDigitoAlgarismos() throws DigitoIncorretoException
+	{
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Digite um número: ");
+		int algarismo = teclado.nextInt();
+		
+		if (algarismo < 0 || algarismo > 9)
+		{
+			throw new DigitoIncorretoException("O número deve estar entre 0 e 9");
+		}
+		
+	}
+	
+	
+	static void lerIdade() throws IdadeNegativaException
+	{
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Informe a idade: ");
+		int idade = teclado.nextInt();
+		
+		if (idade < 0)
+		{
+			throw new IdadeNegativaException("Idade não pode ser menor do que 0.");
+		}
+	}
+}

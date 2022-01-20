@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;utils&apos; to &apos;uteis&apos;&#x0D;&#x0A;- Original project: &apos;ConexaoJDBC&apos;&#x0D;&#x0A;- Original element: &apos;ConexaoJDBC/src/utils&apos;&#x0D;&#x0A;- Renamed element: &apos;ConexaoJDBC/src/uteis&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;utils&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;utils" name="uteis" qualified="false" references="true" stamp="1642635628531" textual="false" version="1.0"/>
+</session>

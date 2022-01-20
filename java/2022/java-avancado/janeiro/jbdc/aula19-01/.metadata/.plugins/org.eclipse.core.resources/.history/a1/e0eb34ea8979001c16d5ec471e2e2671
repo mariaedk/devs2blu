@@ -1,0 +1,29 @@
+package principal;
+
+import entidades.Carro;
+import uteis.Conexao;
+
+public class ProgramaPrincipal {
+
+	public static void main(String[] args)
+	{
+		// instanciando carro e setando atributos
+		Carro carro = new Carro();
+		carro.setPlaca("abc-1234");
+		carro.setMarca("Volks");
+		carro.setModelo("Fusca");
+		carro.salvarCarroBd();
+	}
+	
+	static void testeConexao()
+	{
+		if (Conexao.getConexao() != null)
+		{
+			System.out.println("Conexão sucedida.");
+		}
+		else
+		{
+			System.out.println("Erro ao estabelecer conexão com o Banco de Dados.");
+		}		
+	}
+}

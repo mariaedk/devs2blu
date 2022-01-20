@@ -1,0 +1,92 @@
+package excecoes;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class TratarExcecao 
+{
+	/**
+	 * 
+	 * @author maria
+	 */
+	
+	public static void main(String[] args)
+	{
+		
+		exemploExcecao();
+		System.out.println("---------");
+		imprimirCarros();
+		coletaDadosPessoais();
+
+	}
+	
+	private static void imprimirCarros()
+	{
+		String[] vagas = {"Fusca", "Kombi", "Brasilia"};
+		try
+		{
+			System.out.println(vagas[4]);
+		}
+		catch (ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("Fim do programa.");
+		}
+	}
+	
+	// static  para não precisar instanciar, estou acessando o método do conceito da classe
+	private static void exemploExcecao()
+	{
+		try
+		{
+			int x = 10;
+			int y = 0;
+			int z = x / y;
+		}
+		catch (Exception e)
+		{
+			System.out.println("O valor não pode ser dividido por 0");
+			System.out.println("Erro: " + e.getMessage() + " / " + e.getClass());
+		}
+	}
+
+	/*
+	 * CRIAR UMA ROTINA DE ENTRADA DE DADOS PARA INSERIR O NOME E A IDADE DE UMA PESSOA
+	 * TRATAR AS EXCECOES QUE PODEM OCORRER NA CONVERSAO DOS DADOS
+	 * PROMPT USUARIO ATE DIGITAR ALGO VALIDO
+	 */
+	private static void coletaDadosPessoais()
+	{
+		int idade;
+		String nome;
+		
+		boolean isValid = true;
+		
+		while (isValid == false)
+		{	
+			try
+			{
+				Scanner teclado = new Scanner(System.in);
+				System.out.println("Nome: ");
+				nome = teclado.next();
+	
+				System.out.println("Idade:");
+				idade = teclado.nextInt();
+				
+				teclado.close();
+				isValid = true;
+			}
+			
+			catch (InputMismatchException im)
+			{
+				System.err.println("Idade inválida.");
+				isValid = false;
+			}
+			catch (Exception e)
+			{
+				System.err.println("Entrada inválida de dados. Por favor, verifique e insira novamente.");
+				isValid = false;
+			}
+		}
+		
+	}
+}

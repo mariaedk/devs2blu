@@ -1,0 +1,33 @@
+package principal;
+
+import java.util.Scanner;
+
+public class MinhasExcecoes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Olá");
+		
+		try 
+		{
+			lerIdade();
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	
+	static void lerIdade() throws Exception
+	{
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Informe a idade: ");
+		int idade = teclado.nextInt();
+		
+		if (idade < 0)
+		{
+			throw new Exception("Idade não pode ser menor do que 0.");
+		}
+	}
+}
