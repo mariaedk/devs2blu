@@ -1,0 +1,140 @@
+package entidades;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+import uteis.ConexaoBancoDados;
+
+public class Cliente 
+{
+//	atributos
+	private String nome;
+	private LocalDate dataNascimento;
+	private String cpf;
+	private String nomeMunicipio;
+	
+//	construtor
+	public Cliente(String nome, LocalDate dataNascimento, String cpf, String nomeMunicipio)
+	{
+		this.setNome(nome);
+		this.setDataNascimento(dataNascimento);
+		this.setCpf(cpf);
+		this.setNomeMunicipio(nomeMunicipio);
+	}
+
+//	getters e setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getNomeMunicipio() {
+		return nomeMunicipio;
+	}
+	public void setNomeMunicipio(String nomeMunicipio) {
+		this.nomeMunicipio = nomeMunicipio;
+	}
+	
+//	métodos
+	public Cliente criaCliente()
+	{	
+		Scanner teclado = new Scanner(System.in);
+		
+		// lê informações
+		System.out.println("Nome do cliente: ");
+		String nome = teclado.nextLine();
+		
+		System.out.println("Data de nascimento: ");
+		String dataNascString = teclado.next();
+		
+		System.out.println("Número cpf: ");
+		String cpf = teclado.next();
+		
+		System.out.println("Nome do município em que reside: ");
+		String municipio = teclado.next();
+		
+//		cria objeto de cliente
+		Cliente cliente = new Cliente(nome, formataDataNascCliente(dataNascString), cpf, municipio);
+		
+		teclado.close();
+		return cliente;
+	}
+	
+	public LocalDate formataDataNascCliente(String dataNascString)
+	{
+//		cria um formatador para que a data seja enviada ao banco de dados com um formato que ele entenda 
+		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("d/MM/yyyy");
+		
+//		converter de String para LocalDate
+		LocalDate dataNasc = LocalDate.parse(dataNascString, formatadorData);
+		
+		return dataNasc;
+	}
+	
+	public boolean inserirClienteBD() 
+	{
+		Connection conexao = ConexaoBancoDados.getConexao();
+
+		String sql =  "INSERT INTO cliente(nm_cliente, dt_nascimento, nr_cpf, nm_municipio) values(?,?,?,?)";
+		
+		// tratar exceção
+		try 
+		{
+			// cria um objeto de prepared Statement
+			PreparedStatement stm = conexao.prepareStatement(sql);
+
+			stm.setString(1, this.getNome());
+			stm.setObject(2, this.getDataNascimento());
+			stm.setString(3, this.getCpf());
+			stm.setString(4, this.getNomeMunicipio());
+			
+//			comando execute finaliza a transação no banco
+			stm.execute();
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
+	
+	public boolean salvaClienteBD(Cliente cliente)
+	{
+
+		System.out.println("Conferindo dados que serão enviados ao banco!");
+		System.out.println(cliente.getNome());
+		System.out.println(cliente.getCpf());
+		System.out.println(cliente.getDataNascimento());
+		System.out.println(cliente.getNomeMunicipio());
+		System.out.println("------------------------------------------");
+		
+		if (cliente.inserirClienteBD())
+		{
+			System.out.println("Cliente salvo com sucesso!");
+			return true;
+		}
+		else
+		{
+			System.out.println("O cliente não foi salvo. Erro.");
+			return false;
+		}	
+	}
+}

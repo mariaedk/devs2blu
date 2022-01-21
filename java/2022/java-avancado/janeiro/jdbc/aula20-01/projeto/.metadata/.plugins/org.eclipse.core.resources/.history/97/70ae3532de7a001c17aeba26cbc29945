@@ -1,0 +1,65 @@
+package entidades;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import uteis.ConexaoBancoDados;
+
+public class Produto 
+{
+	private String nome;
+	private String dscProduto;
+	private int qtdEstoque;
+	
+	public String getNome() 
+	{
+		return nome;
+	}
+	
+	public void setNome(String nome) 
+	{
+		this.nome = nome;
+	}
+	
+	public String getDscProduto() 
+	{
+		return dscProduto;
+	}
+	
+	public void setDscProduto(String dscProduto) 
+	{
+		this.dscProduto = dscProduto;
+	}
+	
+	public int getQtdEstoque()
+	{
+		return qtdEstoque;
+	}
+	
+	public void setQtdEstoque(int qtdEstoque)
+	{
+		this.qtdEstoque = qtdEstoque;
+	}
+	
+	public boolean salvarProdutoBD()
+	{
+		String sqlQuery = "insert into produto(nm_produto, dsc_produto, qtd_estoque) values(?,?,?)";
+		try 
+		{
+			PreparedStatement ps = ConexaoBancoDados.getConexao().prepareStatement(sqlQuery);
+			
+			ps.setString(1, this.getNome());
+			ps.setString(2, this.getDscProduto());
+			ps.setInt(3, this.getQtdEstoque());
+			
+			ps.execute();
+		}
+		
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
+}

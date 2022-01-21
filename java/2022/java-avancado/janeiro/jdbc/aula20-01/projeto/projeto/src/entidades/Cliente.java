@@ -9,11 +9,13 @@ import uteis.ConexaoBancoDados;
 
 public class Cliente 
 {
+//	atributos
 	private String nome;
 	private LocalDate dataNascimento;
 	private String cpf;
 	private String nomeMunicipio;
 	
+//	construtor
 	public Cliente(String nome, LocalDate dataNascimento, String cpf, String nomeMunicipio)
 	{
 		this.setNome(nome);
@@ -21,6 +23,8 @@ public class Cliente
 		this.setCpf(cpf);
 		this.setNomeMunicipio(nomeMunicipio);
 	}
+
+//	getters e setters
 	public String getNome() {
 		return nome;
 	}
@@ -45,11 +49,12 @@ public class Cliente
 	public void setNomeMunicipio(String nomeMunicipio) {
 		this.nomeMunicipio = nomeMunicipio;
 	}
-	public boolean salvarClienteBD() 
+	
+	public boolean inserirClienteBD() 
 	{
 		Connection conexao = ConexaoBancoDados.getConexao();
 
-		String sql =  "insert into cliente(nm_cliente, dt_nascimento, nr_cpf, nm_municipio) values(?,?,?)";
+		String sql =  "INSERT INTO cliente(nm_cliente, dt_nascimento, nr_cpf, nm_municipio) values(?,?,?,?)";
 		
 		// tratar exceção
 		try 
@@ -72,4 +77,5 @@ public class Cliente
 		
 		return true;
 	}
+
 }

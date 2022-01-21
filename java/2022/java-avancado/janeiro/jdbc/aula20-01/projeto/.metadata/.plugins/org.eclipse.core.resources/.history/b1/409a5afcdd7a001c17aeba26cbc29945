@@ -1,0 +1,80 @@
+package principal;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+import entidades.Cliente;
+import uteis.ConexaoBancoDados;
+
+public class ProjetoPessoalPrincipal 
+{
+
+	public static void main(String[] args) 
+	{
+		Cliente cliente = criaCliente();
+		salvaClienteBD(cliente);
+	}
+	
+//	métodos
+	public static Cliente criaCliente()
+	{	
+		Scanner teclado = new Scanner(System.in);
+		
+		// lê informações
+		System.out.println("Nome do cliente: ");
+		String nome = teclado.nextLine();
+		
+		System.out.println("Data de nascimento: ");
+		String dataNascString = teclado.next();
+		
+		System.out.println("Número cpf: ");
+		String cpf = teclado.next();
+		
+		System.out.println("Nome do município em que reside: ");
+		String municipio = teclado.next();
+		
+//		cria objeto de cliente
+		Cliente cliente = new Cliente(nome, formataDataNascCliente(dataNascString), cpf, municipio);
+		
+		teclado.close();
+		return cliente;
+	}
+	
+	public static LocalDate formataDataNascCliente(String dataNascString)
+	{
+//		cria um formatador para que a data seja enviada ao banco de dados com um formato que ele entenda 
+		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("d/MM/yyyy");
+		
+//		converter de String para LocalDate
+		LocalDate dataNasc = LocalDate.parse(dataNascString, formatadorData);
+		
+		return dataNasc;
+	}
+	
+	public static boolean salvaClienteBD(Cliente cliente)
+	{
+		
+		if (cliente.inserirClienteBD())
+		{
+			System.out.println("Cliente salvo com sucesso!");
+			return true;
+		}
+		else
+		{
+			System.out.println("O cliente não foi salvo. Erro.");
+			return false;
+		}	
+	}
+
+	static void testeConexao()
+	{
+		if (ConexaoBancoDados.getConexao() != null)
+		{
+			System.out.println("Conexão sucedida.");
+		}
+		else
+		{
+			System.out.println("Erro ao estabelecer conexão com o Banco de Dados.");
+		}		
+	}
+}

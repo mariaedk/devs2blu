@@ -6,7 +6,7 @@ create table PRODUTO
 	qtd_estoque smallint
 );
 
-create table CLIENTE 
+create table cliente 
 (
 	id_cliente serial primary key,
 	nm_cliente varchar(40),
@@ -14,4 +14,8 @@ create table CLIENTE
 	nr_cpf varchar(15),
 	nm_municipio varchar(20)
 );
+
+
 select * from cliente;
+
+select * from produto;

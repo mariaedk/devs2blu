@@ -1,0 +1,27 @@
+package principal;
+import java.util.Scanner;
+import entidades.Cliente;
+import uteis.ConexaoBancoDados;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class ProjetoPessoalPrincipal 
+{
+
+	public static void main(String[] args) 
+	{
+
+	}
+	
+	static void testeConexao()
+	{
+		if (ConexaoBancoDados.getConexao() != null)
+		{
+			System.out.println("Conexão sucedida.");
+		}
+		else
+		{
+			System.out.println("Erro ao estabelecer conexão com o Banco de Dados.");
+		}		
+	}
+}

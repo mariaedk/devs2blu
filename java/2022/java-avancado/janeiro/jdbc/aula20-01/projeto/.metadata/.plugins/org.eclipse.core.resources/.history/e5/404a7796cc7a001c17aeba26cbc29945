@@ -1,0 +1,66 @@
+package principal;
+
+import java.util.Scanner;
+
+import entidades.Cliente;
+import uteis.ConexaoBancoDados;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class ProjetoPessoalPrincipal 
+{
+
+	public static void main(String[] args) 
+	{
+//		testeConexao();
+		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("d/MM/yyyy");
+		
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Nome do cliente: ");
+		String nome = teclado.nextLine();
+		
+		System.out.println("Data de nascimento: ");
+		String dataNascString = teclado.next();
+		
+//		converter de String para LocalDate
+		LocalDate dataNasc = LocalDate.parse(dataNascString, formatadorData);
+		
+		System.out.println("Número cpf: ");
+		String cpf = teclado.next();
+		
+		System.out.println("Nome do município em que reside: ");
+		String municipio = teclado.next();
+			
+		Cliente cliente = new Cliente(nome, dataNasc, cpf, municipio);
+		
+		System.out.println(cliente.getNome());
+		System.out.println(cliente.getCpf());
+		System.out.println(cliente.getDataNascimento());
+		System.out.println(cliente.getNomeMunicipio());
+		
+//		testeConexao();
+		
+		if (cliente.salvarClienteBD())
+		{
+			System.out.println("Cliente salvo com sucesso!");
+		}
+		
+		// TODO: VERIFICAR O SALVAMENTO DE DADOS... "ÍNDICE DA COLUNA ESTÁ FORA DO INTERVALO"
+		// PROVAVELMENTE NO SCRIPT DE CLIENTE NA HORA DE INSERIR DADOS
+		
+		teclado.close();
+	}
+	
+	static void testeConexao()
+	{
+		if (ConexaoBancoDados.getConexao() != null)
+		{
+			System.out.println("Conexão sucedida.");
+		}
+		else
+		{
+			System.out.println("Erro ao estabelecer conexão com o Banco de Dados.");
+		}		
+	}
+}

@@ -1,30 +1,36 @@
 package principal;
 
-import java.util.Scanner;
-
-import entidades.Cliente;
-import uteis.ConexaoBancoDados;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+import entidades.Cliente;
+import entidades.Produto;
+import uteis.ConexaoBancoDados;
 
 public class ProjetoPessoalPrincipal 
 {
 
 	public static void main(String[] args) 
 	{
-//		testeConexao();
-		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("d/MM/yyyy");
+		Cliente cliente = criaCliente();
+		salvaClienteBD(cliente);
 		
+		Produto produto = criarProduto();
+		salvaProdutoBD(produto);
+		
+	}
+	
+//	métodos para o cliente
+	public static Cliente criaCliente()
+	{	
 		Scanner teclado = new Scanner(System.in);
+		
+		// lê informações
 		System.out.println("Nome do cliente: ");
 		String nome = teclado.nextLine();
 		
 		System.out.println("Data de nascimento: ");
 		String dataNascString = teclado.next();
-		
-//		converter de String para LocalDate
-		LocalDate dataNasc = LocalDate.parse(dataNascString, formatadorData);
 		
 		System.out.println("Número cpf: ");
 		String cpf = teclado.next();
@@ -32,30 +38,75 @@ public class ProjetoPessoalPrincipal
 		System.out.println("Nome do município em que reside: ");
 		String municipio = teclado.next();
 		
-//		System.out.println(nome);
-//		System.out.println(dataNascString);
-//		System.out.println(dataNasc);
-//		System.out.println(cpf);
-//		System.out.println(municipio);
-			
-		Cliente cliente = new Cliente(nome, dataNasc, cpf, municipio);
-		
-		System.out.println(cliente.getNome());
-		System.out.println(cliente.getCpf());
-		System.out.println(cliente.getDataNascimento());
-		System.out.println(cliente.getNomeMunicipio());
-		
-		if (cliente.salvarClienteBD())
-		{
-			System.out.println("Cliente salvo com sucesso!");
-		}
-		
-		// TODO: VERIFICAR O SALVAMENTO DE DADOS... "ÍNDICE DA COLUNA ESTÁ FORA DO INTERVALO"
-		// PROVAVELMENTE NO SCRIPT DE CLIENTE NA HORA DE INSERIR DADOS
+//		cria objeto de cliente
+		Cliente cliente = new Cliente(nome, formataDataNascCliente(dataNascString), cpf, municipio);
 		
 		teclado.close();
+		return cliente;
 	}
 	
+	public static LocalDate formataDataNascCliente(String dataNascString)
+	{
+//		cria um formatador para que a data seja enviada ao banco de dados com um formato que ele entenda 
+		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("d/MM/yyyy");
+		
+//		converter de String para LocalDate
+		LocalDate dataNasc = LocalDate.parse(dataNascString, formatadorData);
+		
+		return dataNasc;
+	}
+	
+	public static boolean salvaClienteBD(Cliente cliente)
+	{
+		
+		if (cliente.inserirClienteBD())
+		{
+			System.err.println("Cliente salvo com sucesso!");
+			return true;
+		}
+		else
+		{
+			System.out.println("O cliente não foi salvo. Erro.");
+			return false;
+		}	
+	}
+
+//	métodos para o produto
+	
+	public static Produto criarProduto()
+	{
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Nome do produto: ");
+		String nomeProduto = teclado.nextLine();
+		
+		System.out.println("Descrição do produto: ");
+		String descProduto = teclado.nextLine();
+		
+		System.out.println("Quantidade em estoque: ");
+		short qtdEstoque = teclado.nextShort();
+		
+		Produto produto = new Produto(nomeProduto, descProduto, qtdEstoque);
+		
+		teclado.close();
+		return produto;
+	}
+
+	public static boolean salvaProdutoBD(Produto produto)
+	{
+		if (produto.inserirProdutoBD())
+		{
+			System.err.println("Produto salvo com sucesso!");
+			return true;
+		}
+		else
+		{
+			System.out.println("O produto não foi salvo. Erro.");
+			return false;
+		}
+	}
+
+//	teste de conexão
 	static void testeConexao()
 	{
 		if (ConexaoBancoDados.getConexao() != null)
