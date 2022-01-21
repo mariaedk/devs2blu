@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+E:\dev2blu\java\2022\java-avancado\janeiro\jdbc\aula20-01\.metadata\.plugins\org.eclipse.jdt.core
+1216836354.index
+1379102962.index

@@ -1,0 +1,50 @@
+package principal;
+
+import java.util.Scanner;
+import entidades.Cliente;
+import uteis.ConexaoBancoDados;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class ProjetoPessoalPrincipal 
+{
+
+	public static void main(String[] args) 
+	{
+//		testeConexao();
+//		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("d/MM/yyyy");
+//		
+		Scanner teclado = new Scanner(System.in);
+//		System.out.println("Nome do cliente: ");
+//		String nome = teclado.next();
+//		
+		System.out.println("Data de nascimento: ");
+		String dataNascString = teclado.next();
+//		
+//		converter de String para LocalDate
+		Date date = Date.valueOf(dataNascString);
+		System.out.println(date);
+//		
+//		System.out.println("Número cpf: ");
+//		int cpf = teclado.nextInt();
+//		
+//		System.out.println("Nome do município em que reside: ");
+//		String municipio = teclado.next();
+//		
+//		Cliente cliente = new Cliente(nome, date, cpf, municipio);
+	}
+	
+	static void testeConexao()
+	{
+		if (ConexaoBancoDados.getConexao() != null)
+		{
+			System.out.println("Conexão sucedida.");
+		}
+		else
+		{
+			System.out.println("Erro ao estabelecer conexão com o Banco de Dados.");
+		}		
+	}
+}

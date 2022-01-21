@@ -1,0 +1,24 @@
+package principal;
+
+import uteis.ConexaoBancoDados;
+
+public class ProjetoPessoalPrincipal 
+{
+
+	public static void main(String[] args) 
+	{
+		
+	}
+	
+	static void testeConexao()
+	{
+		if (ConexaoBancoDados.getConexao() != null)
+		{
+			System.out.println("Conexão sucedida.");
+		}
+		else
+		{
+			System.out.println("Erro ao estabelecer conexão com o Banco de Dados.");
+		}		
+	}
+}
