@@ -1,0 +1,23 @@
+package principal;
+
+import entidades.Carro;
+import entidadesDao.CarroDAO;
+
+public class RefatoracaoMain 
+{
+	
+	public static void main(String[] args)
+	{	
+		// criei um objeto do tipo carro.
+		// criei um objeto anonimo do tipo carroDAO e chamei o método atribuiinformacoesCarro
+		// esse método retorna um carro. Logo estou colocando um objeto do tipo carro dentro de outro do tipo carro
+//		Carro carro = new CarroDAO().atribuiInformacoesCarro();
+		
+		// criei outro objeto anonimo do tipo DAO para salvar o carro dando como parametro
+		// o carro acima
+//		new CarroDAO().salvarCarroBD(carro);
+		
+		new CarroDAO().excluirCarroBD(5);
+
+	}
+}

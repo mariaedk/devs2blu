@@ -1,0 +1,142 @@
+package entidadesDao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import entidades.Carro;
+import entidades.Cliente;
+import interfaces.InterfaceDAO;
+import uteis.Conexao;
+
+public class ClienteDAO implements InterfaceDAO<Cliente>
+{
+
+	@Override
+	public boolean salvar(Cliente t) 
+	{
+		Connection con = Conexao.getConexao();
+
+		String sql =  "insert into ";
+
+		try 
+		{
+			PreparedStatement stm = con.prepareStatement(sql);
+
+			stm.setString(1, );
+			stm.setString(2, );
+			stm.setString(3, );
+			
+//			comando execute finaliza a transação no banco
+			stm.execute();
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean update(Cliente t) 
+	{
+		String sql = "update ";
+		
+		PreparedStatement stm;
+		try 
+		{
+			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setString(1,);
+			stm.setString(2,);
+			stm.setString(3,);
+			stm.setInt(4,);
+			stm.execute();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		
+		return true;
+	}
+
+	@Override
+	public boolean excluir(int id)
+	{
+		String sql = "delete " + id;
+		try 
+		{
+			PreparedStatement stm = Conexao.getConexao().prepareStatement(sql);
+			
+			stm.execute();
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
+
+	@Override
+	public Cliente retornarUm(int id)
+	{
+		Cliente cliente = new Cliente();
+		String sql = "select * from " + id;
+		try 
+		{
+			PreparedStatement stm = Conexao.getConexao().prepareStatement(sql);
+
+			ResultSet rs = stm.executeQuery();
+			if (rs.next())
+			{
+				cliente.set(rs.getInt(""));
+				cliente.set(rs.getString(""));
+				cliente.set(rs.getString(""));
+				cliente.set(rs.getString(""));
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return cliente;
+	}
+
+	@Override
+	public List<Cliente> retornarTodos() 
+	{
+		List<Cliente> clientes = new ArrayList<>();
+		
+		String sql = "select * from cliente";
+		
+		try 
+		{
+			PreparedStatement stm = Conexao.getConexao().prepareStatement(sql);
+			ResultSet rs = stm.executeQuery();
+
+			while (rs.next())
+			{
+				Cliente cliente = new Cliente();
+				cliente.set(rs.getInt("id"));
+				cliente.set(rs.getString("nr_placa"));
+				cliente.set(rs.getString("nm_marca"));
+				cliente.set(rs.getString("nm_modelo"));
+
+				clientes.add(cliente);
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return clientes;
+	}
+
+}

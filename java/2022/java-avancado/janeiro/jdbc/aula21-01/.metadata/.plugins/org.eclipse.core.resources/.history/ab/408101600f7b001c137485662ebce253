@@ -1,0 +1,20 @@
+package principal;
+
+import entidades.Carro;
+import entidadesDao.CarroDAO;
+
+public class RefatoracaoMain 
+{
+
+	public static void main(String[] args)
+	{
+		Carro carro = new Carro();
+		carro.setPlaca("abc5677");
+		carro.setMarca("Ford");
+		carro.setModelo("Ranger");
+		
+		// objeto anonimo
+		new CarroDAO().salvarCarroBD(carro);
+
+	}
+}

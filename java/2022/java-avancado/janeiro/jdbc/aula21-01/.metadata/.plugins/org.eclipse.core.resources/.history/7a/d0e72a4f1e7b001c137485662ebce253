@@ -1,0 +1,18 @@
+package interfaces;
+import java.util.List;
+
+//	ideia de abstração 
+//  <T> => Generics
+public interface InterfaceDAO<T>
+{
+	public boolean salvar(T t); // passando um objeto tipo T que será do tipo T (genérico)
+
+	public boolean update(T t);	
+	
+	public boolean excluir(int id);
+
+	public T retornarUm(int id);
+
+	public List<T> retornarTodos();
+	
+}

@@ -1,0 +1,41 @@
+package entidadesDao;
+
+import java.util.List;
+import entidades.Carro;
+import interfaces.InterfaceDAO;
+
+public class CarroDAO implements InterfaceDAO<Carro>
+{
+
+	@Override
+	public boolean salvar(Carro t) 
+	{
+		return false;
+	}
+
+	@Override
+	public boolean update(Carro t) 
+	{
+		return false;
+	}
+
+	@Override
+	public boolean excluir(int id)
+	{
+		return false;
+	}
+
+	@Override
+	public Carro retornarUm(int id)
+	{
+		return null;
+	}
+
+	@Override
+	public List<Carro> retornarTodos() 
+	{
+		return null;
+	}
+
+	
+}

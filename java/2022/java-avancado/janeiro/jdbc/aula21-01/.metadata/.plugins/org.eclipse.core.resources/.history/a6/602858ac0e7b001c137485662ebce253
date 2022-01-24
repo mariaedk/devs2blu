@@ -1,0 +1,39 @@
+package entidadesDao;
+import java.util.List;
+import entidades.Cliente;
+import interfaces.InterfaceDAO;
+
+public class ClienteDAO implements InterfaceDAO<Cliente>
+{
+
+	@Override
+	public boolean salvar(Cliente t) 
+	{
+		return false;
+	}
+
+	@Override
+	public boolean update(Cliente t) 
+	{
+		return false;
+	}
+
+	@Override
+	public boolean excluir(int id)
+	{
+		return false;
+	}
+
+	@Override
+	public Cliente retornarUm(int id)
+	{
+		return null;
+	}
+
+	@Override
+	public List<Cliente> retornarTodos() 
+	{
+		return null;
+	}
+
+}
