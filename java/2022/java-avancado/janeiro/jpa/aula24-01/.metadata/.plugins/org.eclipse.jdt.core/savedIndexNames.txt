@@ -1,0 +1,19 @@
+INDEX VERSION 1.131+D:\dev2blu\java\2022\java-avancado\janeiro\jpa\aula24-01\.metadata\.plugins\org.eclipse.jdt.core
+1975202401.index
+2116451653.index
+381749926.index
+887084143.index
+782368250.index
+2886598589.index
+2268779119.index
+1320853440.index
+3866558765.index
+3810664998.index
+3608749694.index
+3088897567.index
+1865797976.index
+2955714656.index
+3630518632.index
+1293598205.index
+1235870825.index
+1210658807.index

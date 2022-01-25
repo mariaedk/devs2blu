@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=16
+org.eclipse.jdt.core.compiler.compliance=16
+org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+org.eclipse.jdt.core.compiler.release=enabled
+org.eclipse.jdt.core.compiler.source=16
+org.eclipse.jdt.core.userLibrary.hibernate=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/antlr-2.7.7.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/byte-buddy-1.12.7.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/classmate-1.5.1.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/FastInfoset-1.2.15.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/hibernate-commons-annotations-5.1.2.Final.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/hibernate-core-5.6.4.Final.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/istack-commons-runtime-3.0.7.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/jandex-2.4.2.Final.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/javax.activation-api-1.2.0.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/javax.persistence-api-2.2.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/jaxb-api-2.3.1.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/jaxb-runtime-2.3.1.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/jboss-logging-3.4.3.Final.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/jboss-transaction-api_1.2_spec-1.1.1.Final.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/stax-ex-1.8.jar"/>\r\n\t<archive path\="C\:/Users/moc/Downloads/hibernate/txw2-2.3.1.jar"/>\r\n</userlibrary>\r\n
+org.eclipse.jdt.core.userLibrary.postgres=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="D\:/dev2blu/java/2022/java-avancado/janeiro/jpa/aula24-01/lib/postgresql-42.3.1.jar"/>\r\n</userlibrary>\r\n

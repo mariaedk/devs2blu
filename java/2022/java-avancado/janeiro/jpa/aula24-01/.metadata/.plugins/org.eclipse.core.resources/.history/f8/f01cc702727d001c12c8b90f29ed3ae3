@@ -1,0 +1,19 @@
+package principal;
+
+public class Principal
+{
+
+	public static void main(String[] args)
+	{
+		Contato contato = new Contato();
+		
+		contato.setNome("Jose");
+		contato.setEmail("jose@gmail.com");
+		contato.setCelular("471828");
+		
+		new ContatoDAO().salvarContato(contato);
+		
+//		Livro livroDAO = new LivroDAO().criaLivro();
+//		new LivroDAO().salvarLivro(livroDAO);
+	}
+}
