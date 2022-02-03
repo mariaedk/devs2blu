@@ -1,16 +1,28 @@
 package entidades;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+import interfaces.InterfaceDAO;
+import util.Conexao;
+
 /**
  * @author maria
  */
 
-public class Avaliacao 
+public class Avaliacao
 {
+	// atributos
 	private int codigoDisciplina;
 	private int codigoAluno;
 	private int numeroAvaliacao;
 	private double valorNota;
 	
+	public Avaliacao()
+	{
+		
+	}
 	
 	public Avaliacao(int codigoDisciplina, int codigoAluno, int numeroAvaliacao, double valorNota) 
 	{
@@ -19,6 +31,7 @@ public class Avaliacao
 		this.setNumeroAvaliacao(numeroAvaliacao);
 		this.setValorNota(valorNota);
 	}
+	
 	//	getters e setters
 	public int getCodigoDisciplina() {
 		return codigoDisciplina;
@@ -45,24 +58,4 @@ public class Avaliacao
 		this.valorNota = valorNota;
 	}
 	
-//	 methods
-    public void incluirAvaliacao() {
-        // TODO implement here
-    }
-
-    public void alterarAvaliacao() {
-        // TODO implement here
-    }
-
-    public void excluirAvaliacao() {
-        // TODO implement here
-    }
-
-    public void consultarAvaliacao() {
-        // TODO implement here
-    }
-
-    public void listarAvaliacoes() {
-        // TODO implement here
-    }
 }

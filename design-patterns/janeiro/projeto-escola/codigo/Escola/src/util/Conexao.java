@@ -26,7 +26,7 @@ public class Conexao
 	}
 	
 	
-	static void testeConexao()
+	public static void testeConexao()
 	{
 		if (Conexao.conectar() != null) 
 		{

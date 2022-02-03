@@ -1,5 +1,7 @@
 package entidades;
 
+import java.util.Scanner;
+
 /**
  * @author maria
  */
@@ -9,12 +11,26 @@ public class Disciplina
 	private int codigoDisciplina;
 	private String nomeDisciplina;
 	private String nomeProfessor;
-	
-	public Disciplina(int codigoDisciplina, String nomeDisciplina, String nomeProfessor) 
+	private int qtdAvaliacoes;
+
+	public Disciplina()
 	{
-		this.setCodigoDisciplina(codigoDisciplina);
-		this.setNomeDisciplina(nomeDisciplina);
-		this.setNomeProfessor(nomeProfessor);
+		
+	}
+	
+	public Disciplina(String nomeDisciplina, String nomeProfessor, int qtdAvaliacoes) 
+	{
+		this.nomeDisciplina = nomeDisciplina;
+		this.nomeProfessor = nomeProfessor;
+		this.qtdAvaliacoes = qtdAvaliacoes;
+	}
+	
+	public Disciplina(int codigoDisciplina, String nomeDisciplina, String nomeProfessor, int qtdAvaliacoes) 
+	{
+		this.codigoDisciplina = codigoDisciplina;
+		this.nomeDisciplina = nomeDisciplina;
+		this.nomeProfessor = nomeProfessor;
+		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
 	//	getters e setters
 	public int getCodigoDisciplina() {
@@ -35,26 +51,32 @@ public class Disciplina
 	public void setNomeProfessor(String nomeProfessor) {
 		this.nomeProfessor = nomeProfessor;
 	}
+	public int getQtdAvaliacoes() {
+		return qtdAvaliacoes;
+	}
+	public void setQtdAvaliacoes(int qtdAvaliacoes) {
+		this.qtdAvaliacoes = qtdAvaliacoes;
+	}
 
-//	methods
-    public void incluirDisciplina() {
-        // TODO implement here
-    }
+	
+	public Disciplina criaDisciplina()
+	{
+		Scanner teclado = new Scanner(System.in);
 
-    public void alterarDisciplina() {
-        // TODO implement here
-    }
+		
+		System.out.println("Nome da disciplina: ");
+		String nomeDisc = teclado.nextLine();
+		
+		System.out.println("Nome do professor: ");
+		String nomeProf = teclado.nextLine();
 
-    public void excluirDisciplina() {
-        // TODO implement here
-    }
+		System.out.println("Quantidade de avaliaçãoes: ");
+		int qtdAv = teclado.nextInt();
+		
+		Disciplina disciplina = new Disciplina(nomeDisc, nomeProf, qtdAv);
+		
+		return disciplina;
+	}
 
-    public void consultarDisciplina() {
-        // TODO implement here
-    }
-
-    public void listarDisciplinas() {
-        // TODO implement here
-    }
 }
 

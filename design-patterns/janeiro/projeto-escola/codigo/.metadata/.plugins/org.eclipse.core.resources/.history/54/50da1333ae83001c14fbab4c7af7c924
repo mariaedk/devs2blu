@@ -1,0 +1,46 @@
+package principal;
+
+import java.sql.Date;
+
+import entidades.Aluno;
+import util.Conexao;
+
+public class MenuPrincipal 
+{
+
+	public static void main(String[] args) 
+	{
+////		testeConexao();
+////		public Aluno(String nomeAluno, String nomePai, String nomeMae, Date dataNasc,
+////				 String situacaoAluno, double mediaAluno)
+//		Aluno aluno = new Aluno();
+//		aluno.setNomeAluno("Joana");
+//		aluno.setNomeMae("Marina");
+//		aluno.setNomePai("Joaquim");
+//		aluno.setDataNasc(aluno.formataDataNascCliente("10/12/2000"));
+//		aluno.setSituacaoAluno("M");
+//		aluno.setMediaAluno(7.54);
+//		
+//		if (aluno.incluirAluno())
+//		{
+//			System.out.println("Aluno incluído com sucesso.");
+//		}
+//		else
+//		{
+//			System.out.println("Erro ao incluir o aluno.");
+//		}
+//		
+	}
+	
+	static void testeConexao()
+	{
+		if (Conexao.conectar() != null) 
+		{
+			System.out.println("Conectado.");
+		}
+		else
+		{
+			System.out.println("Erro.");
+		}
+	}
+}
