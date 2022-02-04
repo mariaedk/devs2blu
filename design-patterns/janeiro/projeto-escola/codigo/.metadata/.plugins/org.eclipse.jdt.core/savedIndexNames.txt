@@ -1,5 +1,0 @@
-INDEX VERSION 1.131+D:\dev2blu\design-patterns\janeiro\projeto-escola\codigo\.metadata\.plugins\org.eclipse.jdt.core
-1210658807.index
-18611432.index
-1865797976.index
-1421699525.index
