@@ -1,0 +1,86 @@
+package entidadeDAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import entidades.Avaliacao;
+import entidades.Matricula;
+import interfaces.InterfaceDAO;
+import util.Conexao;
+
+public class AvaliacaoDAO implements InterfaceDAO<Avaliacao>
+{
+	/*
+	 * CREATE TABLE Avaliacao (
+    cd_aluno integer NOT NULL,
+    cd_disciplina integer NOT NULL,
+    nr_avaliacao integer NOT NULL,
+    vlr_nota integer NOT NULL,
+    PRIMARY KEY (cd_aluno, cd_disciplina, nr_avaliacao)
+);
+	 */
+
+	@Override
+	public boolean executaSalvarBD(Avaliacao x) {
+		Connection con = Conexao.conectar();
+
+		String sql =  "insert into avaliacao(cd_aluno, cd_disciplina, nr_avaliacao, vlr_nota) "
+					+ "values(?,?,?,?)";
+
+		try 
+		{
+			PreparedStatement stm = con.prepareStatement(sql);
+			
+			stm.setInt(1, x.getCodigoAluno());
+			stm.setInt(2, x.getCodigoDisciplina());
+			stm.setInt(3, x.getNumeroAvaliacao());
+			stm.setDouble(4, x.getValorNota());
+			
+			stm.execute();
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			Conexao.closeConexao();
+		}
+		
+		return true;
+	}
+
+	public boolean salvaAvaliacaoBD(Avaliacao a)
+	{
+		if (!executaSalvarBD(a))
+		{
+			System.out.println("ERRO!");
+			return false;
+		}
+		
+		System.out.println("MATRÍCULA EFETUADA COM SUCESSO");
+		return true;
+	}
+	
+	@Override
+	public boolean executaUpdateBD(Avaliacao x) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean executaExcluirBD(Avaliacao x) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Avaliacao> retornarTodosBD() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}

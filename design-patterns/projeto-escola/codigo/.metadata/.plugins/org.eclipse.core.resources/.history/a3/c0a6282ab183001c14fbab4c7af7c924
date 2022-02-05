@@ -1,0 +1,19 @@
+package principal;
+import entidadeDAO.AlunoDAO;
+import entidades.Aluno;
+
+public class MenuPrincipal 
+{
+
+	public static void main(String[] args) 
+	{
+		Aluno aluno = criaAluno();
+
+		if (new AlunoDAO().inserirAlunoBD())
+		{
+			System.out.println("Sucesso");
+		}
+		
+	}
+
+}

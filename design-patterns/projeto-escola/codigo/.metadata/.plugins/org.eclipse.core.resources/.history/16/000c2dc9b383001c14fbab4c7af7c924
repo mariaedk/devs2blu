@@ -1,0 +1,16 @@
+package interfaces;
+
+import java.util.List;
+
+public interface InterfaceDAO<X>
+{
+	public boolean insereAluno(X x); // passando um objeto tipo T que será do tipo T (genérico)
+
+	public boolean atualizaAluno(X x);	
+	
+	public boolean excluir(X x);
+
+	public X retornarUm(int id);
+
+	public List<X> retornarTodos();
+}

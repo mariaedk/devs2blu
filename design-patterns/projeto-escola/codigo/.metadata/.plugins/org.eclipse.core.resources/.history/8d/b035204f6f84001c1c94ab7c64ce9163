@@ -1,0 +1,50 @@
+package entidadeDAO;
+
+import java.util.List;
+
+import entidades.Matricula;
+import interfaces.InterfaceDAO;
+
+public class MatriculaDAO implements InterfaceDAO<Matricula>
+{
+	/*
+    CREATE TABLE Matricula (
+    cd_aluno integer NOT NULL,
+    cd_disciplina integer NOT NULL,
+    dt_matricula Date NOT NULL,
+    fl_status_matricula char(01) NOT NULL,
+    PRIMARY KEY (cd_aluno, cd_disciplina)
+	 */
+
+	@Override
+	public boolean executaSalvarBD(Matricula x) 
+	{
+		
+	}
+
+	@Override
+	public boolean executaUpdateBD(Matricula x) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean executaExcluirBD(Matricula x) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Matricula retornaUmObjetoBD(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Matricula> retornarTodosBD() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}
