@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header 
+{
+    position: relative;
+    height: auto;
+    padding: 10px 30px;
+}
+
+#logo
+{
+    display: block;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
+    height: 80px;
+    line-height: 100px;
+}
+
+#logo::after
+{
+    display: block;
+    clear: both;
+    content: '';
+}
+
+.logo-topo
+{
+    display: block;
+    float: left;
+    width: 50px;
+    margin: 20px;
+}
+
+.texto-topo
+{
+    display: block;
+    float: left;
+
+}
