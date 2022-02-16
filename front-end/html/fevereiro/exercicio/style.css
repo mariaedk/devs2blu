@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header
+{
+    height: 80px;
+    background-color: antiquewhite;
+    position: relative;
+    padding: 20px;
+    line-height: 80px;
+    font-size: 2em;
+}
+
+body
+{
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+main
+{
+    display: block;
+    height: 80vh;
+    width: 100vw;
+    position: relative;
+}
+
+.wrapper
+{
+    /* centraliza o objeto */
+    width: 70vw; 
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.foto
+{
+    width: 128px;
+    display: block;
+    /* Alinha à esquerda */
+    float: left;
+    margin: 10px;
+
+}
+
+.container
+{
+    display: block;
+    margin: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.receita
+{
+    padding: 10px;
+    margin-top: 10em;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+}
+
+
+footer
+{
+    background-color: antiquewhite;
+    line-height: 150px;
+}
+
+
+.img-logo
+{
+    width: 64px;
+    display: block;
+    /* Alinha à esquerda */
+    float: left;
+    margin: 30px;
+    border-radius: 50%;
+}
+
+.informacoes-site
+{
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.192);
+    border-radius: 10px 10px;
+}

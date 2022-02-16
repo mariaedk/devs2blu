@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+body
+{
+    box-sizing: border-box;
+    /* Barra de rolagem */
+    overflow-x: hidden;
+}
+
+.wrapper
+{
+    /* centraliza o objeto */
+    width: 80vw; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container
+{
+    display: block;
+    margin: 2px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Header */
+header 
+{
+    position: relative;
+    height: 80px;
+    padding: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.466);
+    line-height: 110px;
+    background-color: #E5B9EB;
+}
+
+/* Main */
+main
+{
+    display: block;
+    width: 100vw;
+    position: relative;
+}
+
+#dados-pessoais
+{
+    padding: 1em;
+    position: relative;
+}
+
+#dados-pessoais figure figcaption
+{
+    margin: 10px;
+    color: #9d41a0;
+}
+
+.foto
+{
+    width: 128px;
+    display: block;
+    /* Alinha à esquerda */
+    float: left;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.foto:after
+{
+    display: block;
+    clear: both;
+    content: "";
+}
+
+#dados-curriculo
+{
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.075);
+    padding: 0.5em;
+    border-radius: 10px 10px;
+    background-color: #f6f0fc;
+}
+
+.lista-curriculo
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* alt + shift + arrow cima/baixo para replicar linha */
+.lista-curriculo ul,
+.lista-curriculo ol
+{
+    display: inline-block;
+    margin: 15px;
+    width: 30%;
+}
+
+
