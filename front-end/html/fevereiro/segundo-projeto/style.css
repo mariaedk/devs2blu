@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* monta um quadrado */
+#quadrado1
+{
+    /*  * Fixed: Quadrado roxo fica em relação à tela
+        * Absolute: torna o objeto com configurações absolutas e outros componentes ficam embaixo. Quadrado roxo respeita a section.
+        * Relative: para usar top e left
+    */
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    /* background-color: darkorchid; */
+    top: 100px;
+    left: 100px;
+    background-color: rebeccapurple;
+}
+
+#bt-rt
+{
+    background-color: rgb(221, 10, 140);
+    width: 500px;
+    height: 500px;
+    position: relative;
+    /* Faz o quadrado roxo estar dentro da section (border box)*/
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#quadrado1:hover
+{
+    /* Ao passar o mouse em cima do quadrado, ele aparece */
+    transition: .5s ease-in-out .5s;
+}
+
+#quadrado1:hover ~ .quadrado
+{
+    display: block;
+}
+
+.quadrado
+{
+    display: none;
+    position: absolute;
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
