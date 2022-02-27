@@ -4,6 +4,13 @@
 {
     margin: 0;
     padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body
+{
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 /* Header */
@@ -11,15 +18,30 @@ header
 {
     position: relative;
     height: auto;
-    padding: 10px 30px;
+    padding: 10px 0;
+}
+
+#topo-site-menu
+{ 
+    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
+    width: 100vw;
+}
+
+/* mexe com o conteúdo que vem após ele */
+#topo-site-menu::after
+{
+    display: block;
+    clear: both;
+    content: "";
 }
 
 #logo
 {
     display: block;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
     height: 80px;
-    line-height: 100px;
+    line-height: 80px;
+    width: 50%;
+    float: left;
 }
 
 #logo::after
@@ -41,5 +63,113 @@ header
 {
     display: block;
     float: left;
-
 }
+
+/* Menu */
+#menu-horizontal
+{
+    display: block;
+    float: right;
+    height: 60px;
+    line-height: 60px;
+    width: 40%;
+}
+
+#menu-horizontal ul li
+{
+    display: inline-block;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    list-style: none;
+}
+
+#menu-horizontal ul li a
+{
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    color: black;
+}
+
+#menu-horizontal ul li a:hover
+{
+    background-color: cornflowerblue;
+    transition: all .5s;
+}
+
+.topo-destaque-content
+{
+    text-align: center;
+    background-color: papayawhip;
+    padding-top: 15em;
+    padding-bottom: 15em;
+    background: url('./_img/vialactea.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-weight: 800;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.555);
+}
+
+/* Wrapper define a localização de todo conteúdo do site
+deixa ele no meio, alinhado */
+.wrapper
+{
+    /* largura menor que a tela */
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#art-destaque
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-shadow: 1px 1px 0px black;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#art-destaque h1
+{
+    font-size: 1.6em;
+}
+
+#art-destaque p
+{
+    font-size: 17px;
+}
+
+#art-destaque .texto-destaque
+{
+    padding: 0 5px;
+    background-color: bisque;
+    color: black;
+    text-shadow: none;
+}
+
+#fim-site
+{
+    background-color: aquamarine;
+    text-align: center;
+    height: 60px;
+}
+
+/* Main */
+main
+{
+    min-height: 40vh;
+}
+
+/* Footer */
+#rodape
+{
+    height: 100px;
+    width: 100vw;
+    background-color: cornflowerblue;
+    text-align: center;
+}
+
