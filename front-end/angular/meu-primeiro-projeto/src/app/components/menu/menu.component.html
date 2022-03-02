@@ -1,0 +1,39 @@
+<header>
+   <!-- <nav class="menu">
+    <ul>
+     Diretiva pra criar um laço dentro do html
+      Estrutura de condição For
+      <li *ngFor="let menu of objMenu">
+             let menu -> cria variável menu
+             of objMenu -> do array de Menu criado em menu.components
+             *ngFor faz um For e vai criando tags "a" com texto e link de acordo com o que foi selecionado no For
+        <a href="{{ menu.url }}"> {{ menu.title }} </a>
+      </li>
+    </ul>
+  </nav> -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li *ngFor="let menu in objMenu" class="nav-item active">
+              <a class="nav-link" href="{{ menu.url }}"> {{ menu.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="home-page">
+    <div class="texto-homepage">
+      <h2>Título</h2>
+      <hr>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum tempora voluptatem alias incidunt repellat id. Architecto eveniet, possimus ullam laborum esse natus mollitia iste deleniti provident dignissimos earum voluptates facere? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident quos odio corporis quidem ab dolorum tenetur saepe ipsum laborum ratione culpa fugiat obcaecati nihil deleniti, voluptate illum quod officiis ea!</p>
+    </div>
+  </div>
+</main>
