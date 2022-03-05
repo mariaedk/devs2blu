@@ -9,6 +9,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { ContentThreeColumnsComponent } from './components/content-three-columns/content-three-columns.component';
 import { ContentTableComponent } from './components/content-table/content-table.component';
+import { FormContatoComponent } from './components/form-contato/form-contato.component';
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,16 @@ import { ContentTableComponent } from './components/content-table/content-table.
     FooterComponent,
     HomeComponent,
     ContentThreeColumnsComponent,
-    ContentTableComponent
+    ContentTableComponent,
+    FormContatoComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { FormContatoComponent } from './components/form-contato/form-contato.component';
 // arquivo de rotas
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
@@ -5,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'contato', component: FormContatoComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
