@@ -1,0 +1,27 @@
+<div class="container mt-5 mb-5">
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Nome</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="cidades" class="form-label">Cidades</label>
+      <div class="select-form">
+        <select name="cidades" id="cidades">
+          <option *ngFor="let cidade in cidades$" | async value="{{cidade.id}}">Valor 1</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="uf" class="form-label">UF</label>
+      <div class="select-form">
+        <select (change)="loadMunicipiosByUF($event)" name="uf" id="uf">
+          <option value="SC">SC</option>
+          <option value="PA">PA</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
