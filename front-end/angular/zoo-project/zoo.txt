@@ -1,0 +1,2 @@
+ver como foi implementado a busca de comidas pelo id no kitchenweb.
+da mesma maneira que o cara usou pra buscar a lista de comidas vai ser parecido aqui no zoo

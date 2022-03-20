@@ -1,0 +1,13 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-lg-4 mb-2" *ngFor="let animal of animals | async; index as i">
+      <div class="card">
+        <img src="{{ animal.image_link }}" class="card-img-top custom-img-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ animal.name }}</h5>
+          <a [routerLink]="['/info-animal', animal.id]"class="btn btn-primary">Visitar o animal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
