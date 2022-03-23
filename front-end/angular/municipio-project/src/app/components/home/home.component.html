@@ -1,0 +1,29 @@
+<div class="formulario-contato">
+  <div class="container mt-5 mb-5">
+    <fieldset>
+      <legend class="mb-4">Pesquisa de cidades</legend>
+      <form>
+        <div>
+          <div class="form-group row">
+            <label for="regiao"><p>Escolha uma região:</p></label>
+            <select (change)="getMunicipio($event)" class="form-select" aria-label="Default select example">
+              <option selected>Selecione...</option>
+              <option value="1">Norte</option>
+              <option value="2">Nordeste</option>
+              <option value="3">Sudeste</option>
+              <option value="4">Sul</option>
+              <option value="5">Centro-Oeste</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- BOTÃO -->
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary mt-4">Enviar</button>
+          </div>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+</div>
