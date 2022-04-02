@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class HomeController {
 
-	public HomeController() {
-		// TODO Auto-generated constructor stub
+	public HomeController()
+	{
+		System.out.println("worked!");
 	}
 
 }

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity //(name = "tbfilme") -> criaria a tabela com o nome tbfilme
 public class Filme 
@@ -16,46 +17,52 @@ public class Filme
 	@Column // (unique = true) -> faria com que fosse único
 	private String titulo;
 	
-	@Column // coluna do banco
-	private String genero;
+	@ManyToOne
+	private Genero genero;
 	
-	@Column
-	private int restricao;
+	@ManyToOne
+	private Restricao restricao;
 	
 	@Column
 	private int favorito;
 	
-	public Filme() {}
+	public Filme()
+	{}
 
-	public Long getId() {
+	public Long getId() 
+	{
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id)
+	{
 		this.id = id;
 	}
 
-	public String getTitulo() {
+	public String getTitulo()
+	{
 		return titulo;
 	}
 
-	public void setTitulo(String titulo) {
+	public void setTitulo(String titulo) 
+	{
 		this.titulo = titulo;
 	}
 
-	public String getGenero() {
+	public Genero getGenero() 
+	{
 		return genero;
 	}
 
-	public void setGenero(String genero) {
+	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
 
-	public int getRestricao() {
+	public Restricao getRestricao() {
 		return restricao;
 	}
 
-	public void setRestricao(int restricao) {
+	public void setRestricao(Restricao restricao) {
 		this.restricao = restricao;
 	}
 
