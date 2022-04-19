@@ -1,0 +1,24 @@
+<div class="container mt-5 mb-5">
+  <h1>Lista de Professores</h1>
+  <hr>
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Turma</th>
+        <th scope="col">Endereço</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let professor of listProfessor$ | async; index as i">
+      <tr>
+        <td>{{ professor.pessoa?.nome }}</td>
+        <td>{{ professor.pessoa?.idade }}</td>
+        <td>{{ professor.pessoa?.sexo }}</td>
+        <td>{{ professor.turma }}</td>
+        <td>{{ professor.pessoa?.endereco }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

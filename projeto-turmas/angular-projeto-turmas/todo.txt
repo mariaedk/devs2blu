@@ -1,0 +1,5 @@
+falta:
+aluno-edit (botão de editar aluno ao lado de cada objeto de aluno na tabela lista de alunos)
+professor-edit
+
+fazer professor-cadastro (api do post e .ts do professor-cadastro)
