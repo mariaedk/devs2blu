@@ -1,23 +1,41 @@
 <div class="container mt-5 mb-5">
+    <div *ngIf="msgRetorno | async" class="row ">
+      <div class="col">
+        <div class="alert alert-success mt-5 mb-5" role="alert">
+          Categoria <b>#{{ categoriaAtualDeletada.idCategoria }}</b> deletada com sucesso.
+        </div>
+      </div>
+    </div>
+
   <div class="row">
     <div class="col">
-      <a routerLink="/categoria-add" class="btn btn-success">&plus; Adicionar</a>
+      <h2 class="categoria-head">Suas Categorias</h2>
       <hr class="mb-4">
+      <a routerLink="/categoria-add" class="btn btn-success">&plus; Adicionar</a>
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center">
-    <ul class="list-group col-8">
+  <div class="row d-flex justify-content-center mt-5">
+    <ul class="list-group col-10">
       <li *ngFor="let categoria of listaCategorias  | async" class="list-group-item d-flex justify-content-between">
         <span class="badge badge-dark"> {{ categoria.idCategoria }} </span>
         <span>{{ categoria.descricaoCategoria }}</span>
-        <div class="custom-control custom-switch">
-          <input type="checkbox" checked="{{ categoria.flAtivo }}" (change)="toggleAtivo(categoria.idCategoria)" class="custom-control-input" id="flAtivo_{{categoria.idCategoria}}">
-          <label for="flAtivo_{{categoria.idCategoria}}" class="custom-control-label">Ativo</label>
+        <div class="row">
+          <div class="col-8">
+            <div class="custom-control custom-switch">
+              <input type="checkbox"
+                  (change)="toggleAtivo(categoria.idCategoria)"
+                  class="custom-control-input" id="flAtivo_{{categoria.idCategoria}}">
+              <label class="custom-control-label" for="flAtivo_{{categoria.idCategoria}}">Ativo</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <span class="text-danger">
+              <button (click)="delete(categoria.idCategoria)"
+                    class="btn btn-danger font-weight-bold"> × </button>
+            </span>
+          </div>
         </div>
-        <span class="text-danger">
-          <button (click)="delete(categoria.idCategoria)" class="btn btn-danger font-weight-bolder"> &times; </button>
-        </span>
       </li>
     </ul>
   </div>

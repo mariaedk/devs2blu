@@ -37,9 +37,8 @@ export class CategoriaService {
     return this.httpClient.delete<boolean>(`${this.urlApiCategoria}/${id}`);
   }
 
-  toggleAtivo(id?: number)
-  {
-    return this.httpClient.post<boolean>(`${this.urlApiCategoria}/toggleAtivo`, id);
+  toggleAtivo(id?: number) {
+    return this.httpClient.put<boolean>(`${this.urlApiCategoria}/toggleAtivo`, id);
   }
 
 }

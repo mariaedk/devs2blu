@@ -16,42 +16,41 @@ public class CategoriaService
 	@Autowired
 	CategoriaRepository repository;
 	
-
-	public List<CategoriaDTO> getAll()
-	{
+	public List<CategoriaDTO> getAll() {
 		List<Categoria> categorias = repository.findAll();
-		List<CategoriaDTO> listDTOs = new ArrayList();
+		List<CategoriaDTO> listDTOs = new ArrayList<>();
 		
-		for (Categoria cat : categorias) 
-		{
-			listDTOs.add(cat.getDTO());
+		for (Categoria categoria : categorias) {
+			listDTOs.add(categoria.getDTO());
 		}
+		
 		return listDTOs;
 	}
 	
-
-	public CategoriaDTO getById(Integer id) throws Exception
-	{
-		Categoria categoria = repository.findById(id).orElseThrow(() -> new Exception("Categoria não encontrada"));
-		// converte entidade para dto
+	public CategoriaDTO getById(Integer id) throws Exception {
+		Categoria categoria = repository.findById(id)
+										.orElseThrow(
+												() -> new Exception("Categoria não encontrada"));
 		return categoria.getDTO();
 	}
 	
-	public CategoriaDTO save(CategoriaDTO dto)
-	{
+	public CategoriaDTO save(CategoriaDTO dto) {
 		Categoria categoria = repository.save(dto.convertToEntity());
 		return categoria.getDTO();
 	}
 
-
-	public boolean delete(Integer idCategoria) {
-		// TODO Auto-generated method stub
-		return false;
+	public Boolean delete(Integer idCategoria) throws Exception {
+		Categoria cat = repository.findById(idCategoria)
+								  .orElseThrow(() -> new Exception("Categoria não encontrada"));
+		repository.delete(cat);
+		return true;
 	}
 
-
-	public boolean toggle(Integer idCategoria) {
-		// TODO Auto-generated method stub
-		return false;
+	public Boolean toggle(Integer idCategoria) throws Exception {
+		Categoria cat = repository.findById(idCategoria)
+				  .orElseThrow(() -> new Exception("Categoria não encontrada"));
+		
+		cat.setFlagAtivo(!cat.isFlagAtivo());
+		return save(cat.getDTO()).getIdCategoria() > 0;
 	}
 }

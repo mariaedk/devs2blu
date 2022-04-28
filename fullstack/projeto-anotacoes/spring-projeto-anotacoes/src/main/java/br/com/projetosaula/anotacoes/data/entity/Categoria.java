@@ -37,7 +37,7 @@ public class Categoria
 		this.descricao = descricao;
 	}
 
-	public boolean isFlagAtivo() {
+	public Boolean isFlagAtivo() {
 		return flagAtivo;
 	}
 

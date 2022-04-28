@@ -1,8 +1,9 @@
 import { Categoria } from './../../../models/categoria';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CategoriaService } from './../../../services/categoria.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria-list',
@@ -11,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaListComponent implements OnInit {
 
-  constructor(private service: CategoriaService, private http: HttpClient) { }
+  constructor(private service: CategoriaService, private router: Router) { }
 
   listaCategorias = new Observable<Categoria[]>();
+
+  categoriaAtualDeletada: Categoria = new Categoria({});
+
+  msgRetorno = new Subject<boolean>();
 
   ngOnInit(): void
   {
@@ -33,17 +38,22 @@ export class CategoriaListComponent implements OnInit {
     }
     this.service.deleteCategoria(id || 0).subscribe(
       (resp) =>
+      {
+        this.categoriaAtualDeletada.idCategoria = id;
+        this.msgRetorno.next(true);
+        resp ? this.list() : '';
+      }
         // se a resposta for verdadeira, executa this.list, se não, executa o ''
-        resp ? this.list : ''
     );
   }
 
   toggleAtivo(id?: number)
-  {
-    if (!id)
-    {
+   {
+    console.log(id);
+    if(!id) {
       return;
     }
-    this.service.toggleAtivo(id || 0);
+    this.service.toggleAtivo(id || 0)
+        .subscribe((resp) => resp ? this.list() : '');
   }
 }
